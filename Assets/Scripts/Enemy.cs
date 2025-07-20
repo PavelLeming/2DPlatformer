@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,7 +9,7 @@ public class Enemy : MonoBehaviour
     private bool _isGoToB = false;
 
 
-    void Update()
+    private void Update()
     {
         if (_isGoToB)
         {
