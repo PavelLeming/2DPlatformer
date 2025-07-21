@@ -23,19 +23,12 @@ public class Enemy : MonoBehaviour
         if (Mathf.Abs(transform.position.x - _xAPoint) < _offset && _isGoToB != true)
         {
             _isGoToB = true;
-            Flip();
+            transform.Rotate(0, 180f, 0);
         }
         else if (Mathf.Abs(transform.position.x - _xBPoint) < _offset && _isGoToB)
         {
             _isGoToB = false;
-            Flip();
+            transform.Rotate(0, 180f, 0);
         }
-    }
-
-    private void Flip()
-    {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 }

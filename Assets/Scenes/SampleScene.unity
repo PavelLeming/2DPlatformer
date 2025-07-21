@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 806429899}
   - component: {fileID: 806429900}
   - component: {fileID: 806429901}
+  - component: {fileID: 806429902}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -457,8 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundDetector: {fileID: 806429901}
-  _animator: {fileID: 806429893}
   _mover: {fileID: 806429900}
+  _playerAnimator: {fileID: 806429902}
 --- !u!114 &806429899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +500,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _groundChecker: {fileID: 926265437}
+--- !u!114 &806429902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806429892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822baee7a31ffee4fb5401ab5e326edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 806429893}
 --- !u!1 &864518159
 GameObject:
   m_ObjectHideFlags: 0
