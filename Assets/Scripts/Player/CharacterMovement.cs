@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private Mover _mover;
-    [SerializeField] private InputReactioner _inputReactioner;
+    [SerializeField] private InputReader _inputReader;
 
     private void FixedUpdate()
     {
-        _mover.Move(_inputReactioner._horizontalMove);
+        _mover.Move(_inputReader.HorizontalMove);
 
-        if (_inputReactioner.GetIsJump())
+        if (_inputReader.GetIsJump())
         {
             _mover.Jump();
         }
