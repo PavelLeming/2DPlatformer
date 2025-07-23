@@ -500,9 +500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 806429893}
-  _inputReader: {fileID: 806429904}
-  _groundDetector: {fileID: 806429901}
-  _flipper: {fileID: 806429905}
 --- !u!114 &806429903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,8 +512,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff638bbbd4ffa8469b2a847c15fedfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundDetector: {fileID: 806429901}
   _mover: {fileID: 806429900}
-  _inputReader: {fileID: 0}
+  _inputReader: {fileID: 806429904}
+  _flipper: {fileID: 806429905}
+  _playerAnimator: {fileID: 806429902}
 --- !u!114 &806429904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,8 +529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999669bcc9b09114b864d45416e0f0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundDetector: {fileID: 806429901}
-  _playerAnimator: {fileID: 806429902}
 --- !u!114 &806429905
 MonoBehaviour:
   m_ObjectHideFlags: 0

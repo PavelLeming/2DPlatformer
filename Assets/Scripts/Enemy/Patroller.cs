@@ -5,23 +5,23 @@ using UnityEngine.UI;
 
 public class Patroller : MonoBehaviour
 {
-    [SerializeField] Flipper _flipper;
-    private float _offset = 0.01f;
+    [SerializeField] private Flipper _flipper;
+    private float _offset = 0.1f;
 
-    public float _xAPoint {get; private set;} = 0.5f;
-    public float _xBPoint {get; private set;} = 5.5f;
-    public bool _isGoToB { get; private set; } = false;
+    public float XAPoint {get; private set;} = 0.5f;
+    public float XBPoint {get; private set;} = 5.5f;
+    public bool IsGoToB { get; private set; } = false;
 
-    void Update()
+    private void Update()
     {
-        if (Mathf.Abs(transform.position.x - _xAPoint) < _offset && _isGoToB != true)
+        if (Mathf.Abs(transform.position.x - XAPoint) < _offset && IsGoToB != true)
         {
-            _isGoToB = true;
+            IsGoToB = true;
             _flipper.Flip();
         }
-        else if (Mathf.Abs(transform.position.x - _xBPoint) < _offset && _isGoToB)
+        else if (Mathf.Abs(transform.position.x - XBPoint) < _offset && IsGoToB)
         {
-            _isGoToB = false;
+            IsGoToB = false;
             _flipper.Flip();
         }
     }
