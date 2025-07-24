@@ -7,7 +7,6 @@ public class Fight : MonoBehaviour
 {
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private int _damage;
-    public event UnityAction CollisionWithEnemy;
     private float _detectionRadius = 2f;
 
     private void Start()
@@ -25,7 +24,7 @@ public class Fight : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.GetComponent<DamageTaker>().TakeDamage(_damage);
+                enemy.GetComponent<Health>().TakeDamage(_damage);
             }
 
             yield return wait;

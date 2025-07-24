@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,22 +8,17 @@ public class Player : MonoBehaviour
     [SerializeField] private Flipper _flipper;
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private Collector _collector;
-    [SerializeField] private DamageTaker _damageTaker;
+    [SerializeField] private Health _health;
     private Rigidbody2D _rigidbody;
-    private int _healthPoints = 100;
-    private int _maxHealth = 100;
-    private int _healthRecover = 50;
 
     private void OnEnable()
     {
         _collector.HealthRecover += HealthRecover;
-        _damageTaker.DamageTaken += TakeDamage;
     }
 
     private void OnDisable()
     {
         _collector.HealthRecover -= HealthRecover;
-        _damageTaker.DamageTaken -= TakeDamage;
     }
 
     private void Awake()
@@ -55,27 +47,6 @@ public class Player : MonoBehaviour
 
     private void HealthRecover()
     {
-        if (_healthPoints + _healthRecover > _maxHealth)
-        {
-            _healthPoints = _maxHealth;
-        }
-        else
-        {
-            _healthPoints += _healthRecover;
-        }
-
-        Debug.Log("У вас осталось " + _healthPoints + " хп");
-    }
-
-    private void TakeDamage(int damage)
-    {
-        _healthPoints -= damage;
-
-        Debug.Log("У вас остлось" + _healthPoints + "хп");
-
-        if (_healthPoints < 0)
-        {
-            Destroy(gameObject);
-        }
+        _health.HealthRecover();
     }
 }

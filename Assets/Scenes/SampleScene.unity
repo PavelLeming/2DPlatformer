@@ -279,7 +279,8 @@ GameObject:
   - component: {fileID: 806429903}
   - component: {fileID: 806429905}
   - component: {fileID: 806429904}
-  - component: {fileID: 806429906}
+  - component: {fileID: 806429907}
+  - component: {fileID: 806429908}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -519,7 +520,7 @@ MonoBehaviour:
   _flipper: {fileID: 806429905}
   _playerAnimator: {fileID: 806429902}
   _collector: {fileID: 806429899}
-  _damageTaker: {fileID: 806429906}
+  _health: {fileID: 806429908}
 --- !u!114 &806429904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27f966e1e4ec9b41afdfa1006814f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &806429906
+--- !u!114 &806429907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -553,9 +554,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 806429892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6bf5ca0e2afff74f88a7a5ec13dfea1, type: 3}
+  m_Script: {fileID: 11500000, guid: 55edb7e6852c4304997e997ea209b98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _damage: 15
+--- !u!114 &806429908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806429892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98ac8f4b68560d4d83e026e20d01dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 100
 --- !u!1 &864518159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,8 +1619,9 @@ GameObject:
   - component: {fileID: 2034435910}
   - component: {fileID: 2034435909}
   - component: {fileID: 2034435911}
-  - component: {fileID: 2034435912}
-  m_Layer: 0
+  - component: {fileID: 2034435913}
+  - component: {fileID: 2034435914}
+  m_Layer: 7
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1823,7 +1843,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &2034435912
+--- !u!114 &2034435913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1832,9 +1852,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 2034435902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6bf5ca0e2afff74f88a7a5ec13dfea1, type: 3}
+  m_Script: {fileID: 11500000, guid: 55edb7e6852c4304997e997ea209b98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damage: 20
+--- !u!114 &2034435914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034435902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98ac8f4b68560d4d83e026e20d01dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
