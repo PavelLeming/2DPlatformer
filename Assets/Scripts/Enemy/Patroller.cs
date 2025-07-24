@@ -14,15 +14,15 @@ public class Patroller : MonoBehaviour
 
     private void Update()
     {
-        if (Mathf.Abs(transform.position.x - XAPoint) < _offset && IsGoToB != true)
+        if (Mathf.Abs(transform.position.x - XAPoint) < _offset && !IsGoToB)
         {
             IsGoToB = true;
-            _flipper.Flip();
+            _flipper.Flip(true);
         }
         else if (Mathf.Abs(transform.position.x - XBPoint) < _offset && IsGoToB)
         {
             IsGoToB = false;
-            _flipper.Flip();
+            _flipper.Flip(false);
         }
     }
 }

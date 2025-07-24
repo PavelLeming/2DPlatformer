@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Flipper : MonoBehaviour
 {
-    [SerializeField] private bool _isFacingRight;
-    public bool IsFacingRight => _isFacingRight;
-
-    public void Flip()
+    public void Flip(bool isFacingRight)
     {
-        _isFacingRight = !_isFacingRight;
-
-        transform.Rotate(0, 180f, 0);
+        if (isFacingRight)
+        {
+            transform.rotation = Quaternion.AngleAxis(180f, Vector3.up);
+        }
+        else
+        {
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+        }
     }
 }
