@@ -7,22 +7,34 @@ public class Patroller : MonoBehaviour
 {
     [SerializeField] private Flipper _flipper;
     private float _offset = 0.1f;
+    private List<float> _points = new List<float>() { 0.5f, 5.5f };
+    private int _nextPointNumber = 0;
+    public float NextPoint => _points[_nextPointNumber];
 
-    public float XAPoint {get; private set;} = 0.5f;
-    public float XBPoint {get; private set;} = 5.5f;
     public bool IsGoToB { get; private set; } = false;
 
     private void Update()
     {
-        if (Mathf.Abs(transform.position.x - XAPoint) < _offset && !IsGoToB)
+        if (Mathf.Abs(transform.position.x - NextPoint) < _offset)
         {
-            IsGoToB = true;
-            _flipper.Flip(true);
-        }
-        else if (Mathf.Abs(transform.position.x - XBPoint) < _offset && IsGoToB)
-        {
-            IsGoToB = false;
-            _flipper.Flip(false);
+            if (IsGoToB)
+            {
+                if (++_nextPointNumber == _points.Count)
+                {
+                    IsGoToB = !IsGoToB;
+                    _flipper.Flip(false);
+                    _nextPointNumber = _points.Count - 2;
+                }
+            }
+            else
+            {
+                if (--_nextPointNumber == -1)
+                {
+                    IsGoToB = !IsGoToB;
+                    _flipper.Flip(true);
+                    _nextPointNumber = 1;
+                }
+            }
         }
     }
 }

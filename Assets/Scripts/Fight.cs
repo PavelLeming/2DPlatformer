@@ -11,10 +11,10 @@ public class Fight : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(IsEnemyTouched());
+        StartCoroutine(SearchEnemy());
     }
 
-    private IEnumerator IsEnemyTouched()
+    private IEnumerator SearchEnemy()
     {
         var wait = new WaitForSeconds(1f);
 

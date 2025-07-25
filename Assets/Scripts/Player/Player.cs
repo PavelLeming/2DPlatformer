@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _collector.HealthRecover += HealthRecover;
+        _health.Death += Die;
     }
 
     private void OnDisable()
     {
         _collector.HealthRecover -= HealthRecover;
+        _health.Death -= Die;
     }
 
     private void Awake()
@@ -45,8 +47,13 @@ public class Player : MonoBehaviour
         _flipper.Flip(_inputReader.HorizontalMove < 0);
     }
 
-    private void HealthRecover()
+    private void HealthRecover(int healthRecover)
     {
-        _health.HealthRecover();
+        _health.HealthRecover(healthRecover);
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
