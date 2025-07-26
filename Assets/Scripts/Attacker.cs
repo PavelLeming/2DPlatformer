@@ -14,7 +14,10 @@ public class Attacker : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.GetComponent<Health>().TakeDamage(_damage);
+            if (enemy.TryGetComponent<Health>(out Health _health))
+            {
+                _health.TakeDamage(_damage);
+            }
         }
     }
 }

@@ -21,9 +21,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (!_enemyCheckerArea.IsEnemyEnter)
+        if (_enemyCheckerArea.IsEnemyEnter == false)
         {
-            _target = _patroller.NextPoint;
+            _target = _patroller.NextPoint.position.x;
         }
         else
         {

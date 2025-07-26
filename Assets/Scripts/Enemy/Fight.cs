@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public class Fight : MonoBehaviour
 {
     [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private int _damage;
-    private float _detectionRadius = 2f;
+    [SerializeField] private Attacker _attacker;
 
     private void Start()
     {
@@ -20,12 +19,7 @@ public class Fight : MonoBehaviour
 
         while (enabled)
         {
-            Collider2D enemy = Physics2D.OverlapCircle(transform.position, _detectionRadius, _enemyLayer);
-
-            if (enemy != null)
-            {
-                enemy.GetComponent<Health>().TakeDamage(_damage);
-            }
+            _attacker.Attack();
 
             yield return wait;
         }

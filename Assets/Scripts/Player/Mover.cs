@@ -9,7 +9,7 @@ public class Mover : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void Jump()

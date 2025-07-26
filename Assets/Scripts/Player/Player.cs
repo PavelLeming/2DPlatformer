@@ -43,12 +43,12 @@ public class Player : MonoBehaviour
             _attacker.Attack();
         }
 
-        _playerAnimator.DoJumpAnimation(_groundDetector.IsGround(), _rigidbody.velocity.y);
+        _playerAnimator.StartJumpAnimation(_groundDetector.IsGround(), _rigidbody.velocity.y);
     }
 
     private void Update()
     {
-        _playerAnimator.DoRunAnimation(_inputReader.HorizontalMove != 0);
+        _playerAnimator.StartRunAnimation(_inputReader.HorizontalMove != 0);
 
         _flipper.Flip(_inputReader.HorizontalMove < 0);
     }

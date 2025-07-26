@@ -24,8 +24,11 @@ public class EnemyCheckerArea : MonoBehaviour
 
             if (enemy != null)
             {
-                Player = enemy.GetComponent<Player>();
-                IsEnemyEnter = true;
+                if (enemy.TryGetComponent<Player>(out Player player))
+                {
+                    Player = player;
+                    IsEnemyEnter = true;
+                }
             }
             else
             {

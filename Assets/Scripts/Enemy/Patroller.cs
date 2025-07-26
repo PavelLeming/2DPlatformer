@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class Patroller : MonoBehaviour
 {
     [SerializeField] private Flipper _flipper;
+    [SerializeField] private List<Transform> _points = new List<Transform>();
     private float _offset = 0.1f;
-    private List<float> _points = new List<float>() { 0.5f, 5.5f };
     private int _nextPointNumber = 0;
-    public float NextPoint => _points[_nextPointNumber];
+    public Transform NextPoint => _points[_nextPointNumber];
 
     public bool IsGoRight { get; private set; } = false;
 
     private void Update()
     {
-        if (Mathf.Abs(transform.position.x - NextPoint) < _offset)
+        if (Mathf.Abs(transform.position.x - NextPoint.position.x) < _offset)
         {
             if (IsGoRight)
             {
