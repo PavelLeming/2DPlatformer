@@ -9,17 +9,18 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private Collector _collector;
     [SerializeField] private Health _health;
+    [SerializeField] private Attacker _attacker;
     private Rigidbody2D _rigidbody;
 
     private void OnEnable()
     {
-        _collector.HealthRecover += HealthRecover;
+        _collector.HealthRecover += RestoreHealth;
         _health.Death += Die;
     }
 
     private void OnDisable()
     {
-        _collector.HealthRecover -= HealthRecover;
+        _collector.HealthRecover -= RestoreHealth;
         _health.Death -= Die;
     }
 
@@ -37,19 +38,24 @@ public class Player : MonoBehaviour
             _mover.Jump();
         }
 
-        _playerAnimator.JumpAnimation(_groundDetector.IsGround(), _rigidbody.velocity.y);
+        if (_inputReader.GetIsAttack())
+        {
+            _attacker.Attack();
+        }
+
+        _playerAnimator.DoJumpAnimation(_groundDetector.IsGround(), _rigidbody.velocity.y);
     }
 
     private void Update()
     {
-        _playerAnimator.RunAnimation(_inputReader.HorizontalMove != 0);
+        _playerAnimator.DoRunAnimation(_inputReader.HorizontalMove != 0);
 
         _flipper.Flip(_inputReader.HorizontalMove < 0);
     }
 
-    private void HealthRecover(int healthRecover)
+    private void RestoreHealth(int healthRecover)
     {
-        _health.HealthRecover(healthRecover);
+        _health.RestoreHealth(healthRecover);
     }
 
     private void Die()

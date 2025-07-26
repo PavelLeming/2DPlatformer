@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyCheckerArea _enemyCheckerArea;
     [SerializeField] private Flipper _flipper;
     [SerializeField] private Health _health;
+    private float _target;
     private float _speed = 1.0f;
 
     private void OnEnable()
@@ -22,14 +23,16 @@ public class Enemy : MonoBehaviour
     {
         if (!_enemyCheckerArea.IsEnemyEnter)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(_patroller.NextPoint, transform.position.y), _speed * Time.deltaTime);
+            _target = _patroller.NextPoint;
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(_enemyCheckerArea.Player.transform.position.x, transform.position.y), _speed * Time.deltaTime);
+            _target = _enemyCheckerArea.Player.transform.position.x;
 
             _flipper.Flip(_enemyCheckerArea.Player.transform.position.x > transform.position.x);
         }
+
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(_target, transform.position.y), _speed * Time.deltaTime); ;
     }
 
     private void Die()

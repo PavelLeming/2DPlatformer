@@ -11,17 +11,17 @@ public class Patroller : MonoBehaviour
     private int _nextPointNumber = 0;
     public float NextPoint => _points[_nextPointNumber];
 
-    public bool IsGoToB { get; private set; } = false;
+    public bool IsGoRight { get; private set; } = false;
 
     private void Update()
     {
         if (Mathf.Abs(transform.position.x - NextPoint) < _offset)
         {
-            if (IsGoToB)
+            if (IsGoRight)
             {
                 if (++_nextPointNumber == _points.Count)
                 {
-                    IsGoToB = !IsGoToB;
+                    IsGoRight = !IsGoRight;
                     _flipper.Flip(false);
                     _nextPointNumber = _points.Count - 2;
                 }
@@ -30,7 +30,7 @@ public class Patroller : MonoBehaviour
             {
                 if (--_nextPointNumber == -1)
                 {
-                    IsGoToB = !IsGoToB;
+                    IsGoRight = !IsGoRight;
                     _flipper.Flip(true);
                     _nextPointNumber = 1;
                 }

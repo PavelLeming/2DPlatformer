@@ -8,6 +8,7 @@ public class InputReader : MonoBehaviour
 
     public float HorizontalMove { get; private set; } = 0;
     public bool IsJump { get; private set; }
+    public bool IsAttack { get; private set; }
 
     private void Update()
     {
@@ -17,12 +18,24 @@ public class InputReader : MonoBehaviour
         {
             IsJump = true;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            IsAttack = true;
+        }
     }
 
     public bool GetIsJump()
     {
         bool value = IsJump;
         IsJump = false;
+        return value;
+    }
+
+    public bool GetIsAttack()
+    {
+        bool value = IsAttack;
+        IsAttack = false;
         return value;
     }
 }

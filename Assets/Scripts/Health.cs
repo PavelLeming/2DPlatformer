@@ -20,7 +20,7 @@ public class Health : MonoBehaviour, IDamageable
         }
     }
 
-    public void HealthRecover(int healthRecover)
+    public void RestoreHealth(int healthRecover)
     {
         if (_health + healthRecover > _maxHealth)
         {
