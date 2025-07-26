@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Collector _collector;
     [SerializeField] private Health _health;
     [SerializeField] private Attacker _attacker;
+
     private Rigidbody2D _rigidbody;
 
     private void OnEnable()

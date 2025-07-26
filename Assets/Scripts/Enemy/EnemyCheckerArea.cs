@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyCheckerArea : MonoBehaviour
 {
     [SerializeField] private LayerMask _enemyLayer;
+
     private float _detectionRadius = 4f;
 
     public bool IsEnemyEnter { get; private set; }

@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyCheckerArea _enemyCheckerArea;
     [SerializeField] private Flipper _flipper;
     [SerializeField] private Health _health;
+
     private float _target;
     private float _speed = 1.0f;
 

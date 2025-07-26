@@ -7,6 +7,7 @@ public class Patroller : MonoBehaviour
 {
     [SerializeField] private Flipper _flipper;
     [SerializeField] private List<Transform> _points = new List<Transform>();
+
     private float _offset = 0.1f;
     private int _nextPointNumber = 0;
     public Transform NextPoint => _points[_nextPointNumber];

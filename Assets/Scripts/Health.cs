@@ -5,6 +5,7 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _healthPoints;
+
     public event UnityAction Death;
 
     public int MaxHealth => _maxHealth;
@@ -21,10 +22,6 @@ public class Health : MonoBehaviour, IDamageable
                 Death?.Invoke();
             }
         }
-        else
-        {
-            Debug.Log("Нверное количество урона");
-        }
     }
 
     public void RestoreHealth(int healthRecover)
@@ -39,10 +36,6 @@ public class Health : MonoBehaviour, IDamageable
             {
                 _healthPoints += healthRecover;
             }
-        }
-        else
-        {
-            Debug.Log("Неверное количество восполняемого здоровья");
         }
     }
 }
