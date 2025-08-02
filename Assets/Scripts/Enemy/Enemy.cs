@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyCheckerArea _enemyCheckerArea;
     [SerializeField] private Flipper _flipper;
     [SerializeField] private Health _health;
+    [SerializeField] private Slider _slider;
 
     private float _target;
     private float _speed = 1.0f;
@@ -39,5 +41,6 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Destroy(_slider.gameObject);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Collector _collector;
     [SerializeField] private Health _health;
     [SerializeField] private Attacker _attacker;
+    [SerializeField] private Slider _slider;
 
     private Rigidbody2D _rigidbody;
 
@@ -62,5 +64,6 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Destroy(_slider.gameObject);
     }
 }
