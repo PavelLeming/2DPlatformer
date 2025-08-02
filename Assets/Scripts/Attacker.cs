@@ -12,8 +12,6 @@ public class Attacker : MonoBehaviour
 
     public void Attack()
     {
-        Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _enemies, _enemyLayer);
-
         if (Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _enemies, _enemyLayer) > 0)
         {
             if (_enemies[0].TryGetComponent<Health>(out Health _health))

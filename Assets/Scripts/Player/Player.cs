@@ -64,5 +64,6 @@ public class Player : MonoBehaviour
     private void Die()
     {
         _view.Death();
+        Destroy(gameObject);
     }
 }

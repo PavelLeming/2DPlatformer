@@ -41,5 +41,6 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         _view.Death();
+        Destroy(gameObject);
     }
 }
