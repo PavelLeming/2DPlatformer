@@ -11,20 +11,20 @@ public class Player : MonoBehaviour
     [SerializeField] private Collector _collector;
     [SerializeField] private Health _health;
     [SerializeField] private Attacker _attacker;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private View _view;
 
     private Rigidbody2D _rigidbody;
 
     private void OnEnable()
     {
         _collector.HealthRecover += RestoreHealth;
-        _health.Death += Die;
+        _health.Died += Die;
     }
 
     private void OnDisable()
     {
         _collector.HealthRecover -= RestoreHealth;
-        _health.Death -= Die;
+        _health.Died -= Die;
     }
 
     private void Awake()
@@ -58,12 +58,11 @@ public class Player : MonoBehaviour
 
     private void RestoreHealth(int healthRecover)
     {
-        _health.RestoreHealth(healthRecover);
+        _health.RestoreValue(healthRecover);
     }
 
     private void Die()
     {
-        Destroy(gameObject);
-        Destroy(_slider.gameObject);
+        _view.Death();
     }
 }

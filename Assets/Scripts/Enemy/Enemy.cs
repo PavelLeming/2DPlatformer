@@ -7,19 +7,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyCheckerArea _enemyCheckerArea;
     [SerializeField] private Flipper _flipper;
     [SerializeField] private Health _health;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private View _view;
 
     private float _target;
     private float _speed = 1.0f;
 
     private void OnEnable()
     {
-        _health.Death += Die;
+        _health.Died += Die;
     }
 
     private void OnDisable()
     {
-        _health.Death -= Die;
+        _health.Died -= Die;
     }
 
     private void Update()
@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
-        Destroy(_slider.gameObject);
+        _view.Death();
     }
 }

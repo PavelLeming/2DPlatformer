@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FirstAidKit : MonoBehaviour
+public class FirstAidKit : CollectableObgect
 {
     [SerializeField] private int _healthRecover;
 

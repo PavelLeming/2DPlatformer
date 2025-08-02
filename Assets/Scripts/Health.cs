@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float _maxValue;
     [SerializeField] private float _value;
 
-    public event UnityAction Death;
+    public event UnityAction Died;
     public event UnityAction ValueChanged;
 
     public float MaxValue => _maxValue;
@@ -22,16 +22,16 @@ public class Health : MonoBehaviour
 
             if (_value <= 0)
             {
-                Death?.Invoke();
+                Died?.Invoke();
             }
         }
     }
 
-    public void RestoreHealth(float healthRecover)
+    public void RestoreValue(float valueRecover)
     {
-        if (healthRecover >= 0)
+        if (valueRecover >= 0)
         {
-            _value = Math.Clamp(_value + healthRecover, 0, _maxValue);
+            _value = Math.Clamp(_value + valueRecover, 0, _maxValue);
             ValueChanged?.Invoke();
         }
     }

@@ -7,14 +7,18 @@ public class Collector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Coin>(out Coin coin))
+        if (collision.TryGetComponent<CollectableObgect>(out CollectableObgect collectableObgect))
         {
-            Destroy(collision.gameObject);
-        }
-        else if (collision.TryGetComponent<FirstAidKit>(out FirstAidKit firstAidKit))
-        {
-            HealthRecover?.Invoke(firstAidKit.HealthRecover);
-            Destroy(collision.gameObject);
+            if (collectableObgect is Coin)
+            {
+                Destroy(collision.gameObject);
+            }
+            else if (collectableObgect is FirstAidKit)
+            {
+                FirstAidKit firstAidKit = collectableObgect as FirstAidKit;
+                HealthRecover?.Invoke(firstAidKit.HealthRecover);
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ public class InputReader : MonoBehaviour
 {
     private const string HorizontalAxis = "Horizontal";
     private const string Jump = "Jump";
+    private const int Attack = 0;
 
     public float HorizontalMove { get; private set; } = 0;
     public bool IsJump { get; private set; }
@@ -19,7 +20,7 @@ public class InputReader : MonoBehaviour
             IsJump = true;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(Attack))
         {
             IsAttack = true;
         }
