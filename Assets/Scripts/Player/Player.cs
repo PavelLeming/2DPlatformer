@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Health _health;
     [SerializeField] private Attacker _attacker;
     [SerializeField] private View _view;
+    [SerializeField] private Abilities _abilities;
 
     private Rigidbody2D _rigidbody;
 
@@ -44,6 +45,11 @@ public class Player : MonoBehaviour
         if (_inputReader.GetIsAttack())
         {
             _attacker.Attack();
+        }
+
+        if (_inputReader.GetIsVampire() && _abilities.IsVampireEnable)
+        {
+            _abilities.StartVampiring();
         }
 
         _playerAnimator.StartJumpAnimation(_groundDetector.IsGround(), _rigidbody.velocity.y);
